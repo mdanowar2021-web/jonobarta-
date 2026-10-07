@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JonoBarta — সত্যের পথে, মানুষের পাশে</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans Bengali",Arial,sans-serif;background:#f5f6f8;color:#18202b}
+:root{--red:#c91429;--dark:#101828;--muted:#667085;--line:#e4e7ec;--white:#fff}
+.top{background:#111827;color:#fff;font-size:13px}.container{max-width:1200px;margin:auto;padding:0 18px}.top .container{height:34px;display:flex;align-items:center;justify-content:space-between}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.head{min-height:78px;display:flex;align-items:center;gap:25px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#111}.mark{width:48px;height:48px;border-radius:9px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px;box-shadow:0 5px 14px #c9142930}.brand strong{font-size:30px;letter-spacing:-1px}.brand span{display:block;color:var(--muted);font-size:10px;margin-top:-3px}
+nav{display:flex;gap:4px;flex:1;align-items:center;overflow:auto}nav a{color:#344054;text-decoration:none;padding:9px 11px;white-space:nowrap;font-size:14px;font-weight:600;border-radius:7px}nav a:hover,nav a.active{background:#fff0f2;color:var(--red)}.search{border:1px solid var(--line);border-radius:9px;padding:9px 11px;width:190px}
+.breaking{background:var(--red);color:#fff}.breaking .container{display:flex;align-items:center;min-height:40px;gap:14px}.breaking b{background:#9d0e1f;padding:5px 10px;border-radius:5px;font-size:12px}.ticker{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+main{padding:22px 0 45px}.hero{display:grid;grid-template-columns:2fr 1fr;gap:18px}.lead{background:#000;border-radius:12px;overflow:hidden;position:relative;min-height:400px}.lead img{width:100%;height:100%;object-fit:cover;opacity:.88}.lead .overlay{position:absolute;inset:0;background:linear-gradient(transparent 35%,#000d 100%);display:flex;align-items:flex-end;padding:28px}.lead h1{color:#fff;font-size:30px;line-height:1.25;margin:7px 0}.tag{display:inline-block;background:var(--red);color:#fff;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700}
+.side{display:grid;gap:12px}.mini{display:grid;grid-template-columns:145px 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px;overflow:hidden}.mini img{width:145px;height:110px;object-fit:cover;border-radius:7px}.mini h3{font-size:16px;line-height:1.4;margin:7px 0}.meta{color:var(--muted);font-size:11px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:30px 0 14px;border-bottom:2px solid var(--dark);padding-bottom:8px}.section-title h2{margin:0;font-size:23px}.section-title a{color:var(--red);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-2px);box-shadow:0 8px 25px #10182812}.card img{width:100%;height:190px;object-fit:cover}.cardbody{padding:13px}.card h3{font-size:18px;line-height:1.45;margin:6px 0 9px}.desc{font-size:13px;color:#667085;line-height:1.6}.author{font-size:11px;color:#667085}
+footer{background:#111827;color:#d0d5dd;padding:35px 0}.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footerbrand{font-size:25px;font-weight:900;color:#fff}.footerbrand span{color:#e63950}.footgrid h4{color:#fff;margin-top:0}.footgrid p,.footgrid a{font-size:13px;color:#98a2b3;text-decoration:none;line-height:1.8}
+.admin{display:none;position:fixed;inset:0;background:#0008;z-index:50;padding:20px;overflow:auto}.modal{max-width:720px;background:#fff;border-radius:14px;margin:20px auto;padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center}.modal h2{margin:0}.close{background:#f2f4f7;border:0;border-radius:7px;padding:8px 12px;cursor:pointer}.form{display:grid;gap:10px;margin-top:15px}.form input,.form textarea,.form select{width:100%;border:1px solid #d0d5dd;border-radius:8px;padding:11px;font:inherit}.form textarea{min-height:150px;resize:vertical}.upload{border:2px dashed #d0d5dd;padding:18px;text-align:center;border-radius:9px}.publish{background:var(--red);color:#fff;border:0;padding:12px;border-radius:8px;font-weight:800;cursor:pointer}.adminbtn{background:#111827;color:#fff;border:0;border-radius:8px;padding:9px 12px;cursor:pointer}
+.empty{padding:35px;text-align:center;color:#667085;background:#fff;border:1px dashed #d0d5dd;border-radius:10px;grid-column:1/-1}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.search{display:none}}
+@media(max-width:620px){.head{min-height:68px}.brand strong{font-size:25px}.mark{width:42px;height:42px}.hero{grid-template-columns:1fr}.lead{min-height:330px}.lead h1{font-size:23px}.grid{grid-template-columns:1fr}.mini{grid-template-columns:120px 1fr}.mini img{width:120px;height:95px}.footgrid{grid-template-columns:1fr}.top .container{font-size:11px}.breaking .container{min-height:38px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container"><span>বুধবার, ৭ অক্টোবর ২০২৬</span><span>সত্যের পথে, মানুষের পাশে</span></div></div>
+<header><div class="container head">
+<a class="brand" href="#"><div class="mark">JB</div><div><strong>JonoBarta</strong><span>সত্যের পথে, মানুষের পাশে</span></div></a>
+<nav id="nav"><a class="active" href="#" onclick="filterNews('সব');return false">হোম</a><a href="#" onclick="filterNews('জাতীয়');return false">জাতীয়</a><a href="#" onclick="filterNews('রাজনীতি');return false">রাজনীতি</a><a href="#" onclick="filterNews('আন্তর্জাতিক');return false">আন্তর্জাতিক</a><a href="#" onclick="filterNews('অর্থনীতি');return false">অর্থনীতি</a><a href="#" onclick="filterNews('খেলাধুলা');return false">খেলাধুলা</a><a href="#" onclick="filterNews('বিনোদন');return false">বিনোদন</a><a href="#" onclick="filterNews('শিক্ষা');return false">শিক্ষা</a></nav>
+<input class="search" id="search" placeholder="খুঁজুন..." oninput="render()"><button class="adminbtn" onclick="openAdmin()">＋ নিউজ</button>
+</div></header>
+<div class="breaking"><div class="container"><b>ব্রেকিং</b><div class="ticker" id="ticker">JonoBarta — গুরুত্বপূর্ণ সংবাদ সবার আগে জানতে আমাদের সঙ্গে থাকুন</div></div></div>
+
+<main class="container">
+<section class="hero">
+<div class="lead" id="lead"></div><div class="side" id="side"></div>
+</section>
+<div class="section-title"><h2 id="sectionTitle">সর্বশেষ সংবাদ</h2><a href="#" onclick="filterNews('সব');return false">সব সংবাদ →</a></div>
+<section class="grid" id="newsGrid"></section>
+</main>
+
+<footer><div class="container footgrid"><div><div class="footerbrand"><span>Jono</span>Barta</div><p>সত্যের পথে, মানুষের পাশে। নির্ভরযোগ্য সংবাদ, মানুষের কথা এবং সময়ের গুরুত্বপূর্ণ তথ্য পৌঁছে দেওয়াই আমাদের লক্ষ্য।</p><p>Facebook · YouTube · JonoBarta</p></div><div><h4>বিভাগ</h4><p>জাতীয়<br>রাজনীতি<br>অর্থনীতি<br>আন্তর্জাতিক<br>শিক্ষা</p></div><div><h4>যোগাযোগ</h4><p>৪৬/৬ জিগাতলা কাঁচা বাজার, ধানমন্ডি, ঢাকা<br>ই-মেইল: info@jonobarta.com</p></div></div></footer>
+
+<div class="admin" id="admin"><div class="modal">
+<div class="modalhead"><h2>JonoBarta — নিউজ প্রকাশ</h2><button class="close" onclick="closeAdmin()">✕</button></div>
+<form class="form" onsubmit="publish(event)">
+<label>শিরোনাম</label><input id="title" required placeholder="সংবাদের আকর্ষণীয় শিরোনাম লিখুন">
+<label>বিভাগ</label><select id="cat"><option>জাতীয়</option><option>রাজনীতি</option><option>আন্তর্জাতিক</option><option>অর্থনীতি</option><option>খেলাধুলা</option><option>বিনোদন</option><option>শিক্ষা</option><option>অন্যান্য</option></select>
+<label>ছবি</label><div class="upload"><input id="photo" type="file" accept="image/*" required></div>
+<label>সংক্ষিপ্ত বিবরণ</label><input id="summary" placeholder="কার্ডে দেখানোর সংক্ষিপ্ত লেখা">
+<label>বিস্তারিত সংবাদ</label><textarea id="body" required placeholder="সম্পূর্ণ সংবাদ লিখুন..."></textarea>
+<label>রিপোর্টারের নাম</label><input id="reporter" placeholder="জোনোবার্তা প্রতিবেদক">
+<button class="publish">প্রকাশ করুন</button>
+</form>
+</div></div>
+
+<script>
+const demo=[
+{title:"দেশের খবর এখন এক নজরে — JonoBarta-এর সঙ্গে থাকুন",cat:"জাতীয়",img:"https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80",summary:"দেশ-বিদেশের গুরুত্বপূর্ণ সংবাদ, মানুষের কথা ও সময়ের আলোচিত বিষয় নিয়ে JonoBarta।",body:"এটি JonoBarta ওয়েবসাইটের ডেমো সংবাদ। প্রশাসনিক প্যানেল থেকে প্রতিদিন নতুন ছবি ও টেক্সট নিউজ প্রকাশ করা যাবে।",reporter:"JonoBarta ডেস্ক"},
+{title:"শিক্ষা ও তরুণদের সম্ভাবনা নিয়ে নতুন উদ্যোগ",cat:"শিক্ষা",img:"https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",summary:"তরুণদের দক্ষতা ও শিক্ষার সুযোগ নিয়ে নতুন আলোচনা।",body:"শিক্ষা, ক্যারিয়ার ও তরুণদের নিয়ে নিয়মিত সংবাদ প্রকাশ করবে JonoBarta।",reporter:"জোনোবার্তা প্রতিবেদক"},
+{title:"শহরের ব্যস্ত জীবনে মানুষের প্রতিদিনের গল্প",cat:"জাতীয়",img:"https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=800&q=80",summary:"রাজধানীর জীবনযাত্রা ও মানুষের নানান অভিজ্ঞতার খবর।",body:"শহরের বিভিন্ন এলাকার মানুষের জীবন ও স্থানীয় খবর তুলে ধরার জন্য JonoBarta কাজ করবে।",reporter:"JonoBarta প্রতিনিধি"},
+{title:"খেলাধুলায় আজকের আলোচিত খবর",cat:"খেলাধুলা",img:"https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80",summary:"খেলার মাঠের সর্বশেষ খবর ও আপডেট।",body:"দেশ-বিদেশের খেলাধুলার খবর নিয়মিত প্রকাশ করা হবে।",reporter:"স্পোর্টস ডেস্ক"}
+];
+let news=JSON.parse(localStorage.getItem("jbNews")||"null")||demo;
+let current="সব";
+function save(){localStorage.setItem("jbNews",JSON.stringify(news))}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function render(){
+let q=document.getElementById("search").value.toLowerCase();
+let arr=news.filter(n=>(current==="সব"||n.cat===current)&&((n.title+" "+n.summary+" "+n.body).toLowerCase().includes(q)));
+if(!arr.length){document.getElementById("lead").innerHTML="<div style='padding:40px;color:white'>কোনো সংবাদ পাওয়া যায়নি</div>";document.getElementById("side").innerHTML="";document.getElementById("newsGrid").innerHTML="<div class='empty'>এই বিভাগে এখনো কোনো সংবাদ নেই।</div>";return}
+document.getElementById("sectionTitle").textContent=current==="সব"?"সর্বশেষ সংবাদ":current+" সংবাদ";
+let a=arr[0];document.getElementById("lead").innerHTML=`<img src="${esc(a.img)}"><div class="overlay"><div><span class="tag">${esc(a.cat)}</span><h1>${esc(a.title)}</h1><div class="meta" style="color:#ddd">${esc(a.reporter||"JonoBarta ডেস্ক")} · আজ</div></div></div>`;
+document.getElementById("side").innerHTML=arr.slice(1,4).map(n=>`<article class="mini"><img src="${esc(n.img)}"><div><span class="tag">${esc(n.cat)}</span><h3>${esc(n.title)}</h3><div class="meta">${esc(n.reporter||"JonoBarta ডেস্ক")}</div></div></article>`).join("");
+document.getElementById("newsGrid").innerHTML=arr.map((n,i)=>`<article class="card"><img src="${esc(n.img)}"><div class="cardbody"><span class="tag">${esc(n.cat)}</span><h3>${esc(n.title)}</h3><div class="desc">${esc(n.summary||n.body.slice(0,120))}</div><div class="author" style="margin-top:9px">${esc(n.reporter||"JonoBarta ডেস্ক")} · আজ</div></div></article>`).join("");
+}
+function filterNews(c){current=c;document.querySelectorAll("nav a").forEach(a=>a.classList.remove("active"));render();window.scrollTo({top:0,behavior:"smooth"})}
+function openAdmin(){document.getElementById("admin").style.display="block"}
+function closeAdmin(){document.getElementById("admin").style.display="none"}
+function publish(e){
+e.preventDefault();const file=document.getElementById("photo").files[0];if(!file)return;
+const r=new FileReader();r.onload=()=>{news.unshift({title:title.value,cat:cat.value,img:r.result,summary:summary.value,body:body.value,reporter:reporter.value||"JonoBarta ডেস্ক"});save();render();e.target.reset();closeAdmin();alert("নিউজ সফলভাবে প্রকাশ হয়েছে।")};r.readAsDataURL(file)
+}
+render();
+</script>
+</body>
+</html>
