@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}{% block title %}JonoBarta | সর্বশেষ সংবাদ{% endblock %}
+{% block content %}
+<div class="container">
+{% if breaking %}<div class="breaking"><b>🔴 BREAKING</b><div class="ticker">{% for x in breaking %}<a href="{{ url_for('news_detail',slug=x.slug) }}">{{x.title}}</a>{% if not loop.last %} • {% endif %}{% endfor %}</div></div>{% endif %}
+<section class="hero"><div><div class="eyebrow">জনবার্তা নিউজ</div><h1>দেশ ও বিশ্বের গুরুত্বপূর্ণ খবর এক জায়গায়</h1><p>দ্রুত, নির্ভরযোগ্য ও মানুষের কথা বলার অঙ্গীকারে JonoBarta।</p></div><div class="hero-mark">JB</div></section>
+<form class="search" method="get"><input name="q" value="{{q}}" placeholder="খবর খুঁজুন..."><select name="category"><option value="">সব বিভাগ</option>{% for c in categories %}<option {% if cat==c %}selected{% endif %}>{{c}}</option>{% endfor %}</select><button>🔎 খুঁজুন</button></form>
+<div class="section-head"><h2>সর্বশেষ সংবাদ</h2>{% if q %}<small>“{{q}}” এর ফলাফল</small>{% endif %}</div>
+<div class="grid">{% for x in news %}
+<article class="card">{% if x.image %}<img src="{{ url_for('static',filename='uploads/'+x.image) }}">{% else %}<div class="noimg">JonoBarta</div>{% endif %}
+<div class="pad">{% if x.breaking %}<span class="badge red">BREAKING</span>{% endif %}{% if x.featured %}<span class="badge gold">FEATURED</span>{% endif %}
+<div class="meta">{{x.category or 'জাতীয়'}} · {{x.reporter or 'JonoBarta Desk'}}</div><h3><a href="{{ url_for('news_detail',slug=x.slug) }}">{{x.title}}</a></h3><p>{{x.summary}}</p><div class="meta">👁 {{x.views}} views · {{x.created_at[:10]}}</div></div></article>
+{% else %}<div class="empty">কোনো সংবাদ পাওয়া যায়নি।</div>{% endfor %}</div>
+{% if featured %}<div class="section-head"><h2>⭐ Featured News</h2></div><div class="featured-row">{% for x in featured %}<a class="feature" href="{{ url_for('news_detail',slug=x.slug) }}">{{x.title}}</a>{% endfor %}</div>{% endif %}
+</div>{% endblock %}

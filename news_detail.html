@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}{% block title %}{{item.title}} | JonoBarta{% endblock %}
+{% block content %}<main class="container article">
+<div class="article-head"><div class="meta">{{item.category or 'জাতীয়'}} · {{item.reporter or 'JonoBarta Desk'}} · 👁 {{item.views}}</div><h1>{{item.title}}</h1><p class="lead">{{item.summary}}</p></div>
+{% if item.image %}<img class="cover" src="{{ url_for('static',filename='uploads/'+item.image) }}">{% endif %}
+<div class="article-body">{{item.body|replace('\n','<br>')|safe}}</div>
+<div class="share"><button onclick="shareFB()">f Facebook</button><button onclick="copyLink()">🔗 লিংক কপি</button></div>
+<hr><h3>আরও খবর</h3><div class="related">{% for x in related %}<a href="{{ url_for('news_detail',slug=x.slug) }}">{{x.title}}</a>{% endfor %}</div>
+</main><script>function shareFB(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')}function copyLink(){navigator.clipboard.writeText(location.href);alert('লিংক কপি হয়েছে')}</script>
+{% endblock %}

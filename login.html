@@ -1,0 +1,3 @@
+
+{% extends "base.html" %}{% block title %}Admin Login | JonoBarta{% endblock %}
+{% block content %}<div class="auth"><form method="post" class="panel"><div class="logo-big">JB</div><h1>Admin Login</h1><p>JonoBarta CMS</p>{% with msgs=get_flashed_messages(with_categories=true) %}{% for cat,msg in msgs %}<div class="alert">{{msg}}</div>{% endfor %}{% endwith %}<input name="username" placeholder="Username" required><input name="password" type="password" placeholder="Password" required><button class="primary">Login</button><small>Default: admin / admin123</small></form></div>{% endblock %}

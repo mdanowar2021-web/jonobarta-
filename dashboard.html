@@ -1,0 +1,8 @@
+
+{% extends "base.html" %}{% block title %}Admin Dashboard | JonoBarta{% endblock %}
+{% block content %}<div class="container admin">
+<div class="adminbar"><div><h1>Dashboard</h1><p>স্বাগতম, {{session.get('admin')}}</p></div><div><a class="btn" href="{{url_for('news_new')}}">＋ নতুন নিউজ</a><a class="btn" href="{{url_for('reporters')}}">👤 Reporters</a><a class="btn dark" href="{{url_for('logout')}}">Logout</a></div></div>
+{% with msgs=get_flashed_messages(with_categories=true) %}{% for cat,msg in msgs %}<div class="alert success">{{msg}}</div>{% endfor %}{% endwith %}
+<div class="stats"><div><b>{{stats.total}}</b><span>Total News</span></div><div><b>{{stats.published}}</b><span>Published</span></div><div><b>{{stats.draft}}</b><span>Draft</span></div><div><b>{{stats.views}}</b><span>Total Views</span></div><div><b>{{stats.reporters}}</b><span>Reporters</span></div></div>
+<div class="panel tablewrap"><div class="section-head"><h2>Latest News</h2></div><table><tr><th>Title</th><th>Status</th><th>Views</th><th>Action</th></tr>{% for x in latest %}<tr><td>{{x.title}}</td><td><span class="badge {{'green' if x.status=='published' else 'gray'}}">{{x.status}}</span></td><td>{{x.views}}</td><td><a href="{{url_for('news_edit',nid=x.id)}}">✏️ Edit</a> · <a target="_blank" href="{{url_for('news_detail',slug=x.slug)}}">👁</a> · <form class="inline" method="post" action="{{url_for('news_delete',nid=x.id)}}" onsubmit="return confirm('Delete?')"><button>🗑️</button></form></td></tr>{% endfor %}</table></div>
+</div>{% endblock %}

@@ -1,0 +1,15 @@
+
+<!doctype html><html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}JonoBarta — সত্যের পথে, মানুষের পাশে{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head><body>
+<header class="top"><div class="container nav">
+<a class="brand" href="{{ url_for('home') }}"><span class="dot"></span>JonoBarta</a>
+<div class="tagline">সত্যের পথে, মানুষের পাশে</div>
+<div class="navlinks"><a href="{{ url_for('home') }}">হোম</a>{% if session.get('admin') %}<a href="{{ url_for('dashboard') }}">Admin</a>{% endif %}</div>
+</div></header>
+{% block content %}{% endblock %}
+<footer><div class="container"><b>JonoBarta</b> — সত্যের পথে, মানুষের পাশে <span>© 2026</span></div></footer>
+<script src="{{ url_for('static',filename='js/app.js') }}"></script>
+</body></html>
